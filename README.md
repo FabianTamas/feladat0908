@@ -7,4 +7,11 @@
 	- Kő legyőzi az Ollót
 	- Papír legyőzi a Követ
 	- Olló legyőzi a Papírt
+
+	[] A nyerés megállapítását kiszervezzük metódusba
+	- EmberNyer()
+    - Visszaadott érték -> 0, 1, 2
+    - 0: Döntetlen
+    - 1: Gép nyer
+    - 2: Ember nyer
 - [x] Kiírjuk az eredményt
