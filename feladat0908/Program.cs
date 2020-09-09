@@ -33,10 +33,7 @@ namespace ismetles01
             {
                 Console.WriteLine("Döntetlen");
             }
-            else if (gepValasz==0 && jatekosValasz==2 || gepValasz == 1 && jatekosValasz == 0 || gepValasz == 2 && jatekosValasz == 1)
-            {
-                Console.WriteLine("Vesztettél...");
-            }
+            else Console.WriteLine("Vesztettél...");
 
             Console.ReadKey();
         }
