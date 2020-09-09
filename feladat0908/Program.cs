@@ -8,8 +8,10 @@ namespace ismetles01
 {
     class Program
     {
+        static string[] lehetoseg = new string[] { "Kő", "Papír", "Olló" };
         static void EredmenyKiiras(int gep, int ember)
         {
+            Console.WriteLine("Gép: {0} --- Játékos: {1}", lehetoseg[gep], lehetoseg[ember]);
             switch (EmberNyer(gep, ember))
             {
                 case 0:
@@ -39,7 +41,6 @@ namespace ismetles01
         {
 
             Random vel = new Random();
-            string[] lehetoseg = new string[] { "Kő", "Papír", "Olló" };
 
             int jatekosValasz;
 
@@ -51,7 +52,7 @@ namespace ismetles01
             int gepValasz = vel.Next(0, 3);     
             Console.WriteLine("Gép választása: {0}", lehetoseg[gepValasz]);
 
-            Console.WriteLine("Gép: {0} --- Játékos: {1}", lehetoseg[gepValasz], lehetoseg[jatekosValasz]);
+            
 
             EredmenyKiiras(gepValasz, jatekosValasz);
 
