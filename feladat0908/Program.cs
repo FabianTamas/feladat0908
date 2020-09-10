@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace ismetles01
 {
@@ -73,8 +74,37 @@ namespace ismetles01
             //throw new NotImplementedException();
         }
 
+        private static void StatisztikaKiiras()
+        {
+            Console.WriteLine("\t Menetek száma: {0}, " +
+                "Játékos győzelmének száma: {1}, " +
+                "Gép győzelmének száma: {2} ", menet, jatekosNyer, gepNyer);
+        }
+
+        private static void StatisztikaFajlbol()
+        {
+            StreamReader stat = new StreamReader("Statisztika.txt");
+            while (!stat.EndOfStream)
+            {
+                string[] szovegAdat = stat.ReadLine().Split(';');
+                int[] adat = new int[3];
+                //adat[0] = int.Parse(szovegAdat[0]);
+                //adat[1] = int.Parse(szovegAdat[1]);
+                //adat[2] = int.Parse(szovegAdat[2]);
+                for (int i = 0; i < adat.Length; i++)
+                {
+                    adat[i] = int.Parse(szovegAdat[i]);
+                }
+                Console.WriteLine("{0} {1} {2}",adat[0], adat[1], adat[2]);
+            }
+            stat.Close();
+            Console.WriteLine("------------>Statisztika vége<------------\n");
+        }
+
         static void Main(string[] args)
         {
+            StatisztikaFajlbol();
+
             bool tovabb = true;
             while (tovabb)
             {
@@ -94,11 +124,6 @@ namespace ismetles01
             Console.ReadKey();
         }
 
-        private static void StatisztikaKiiras()
-        {
-            Console.WriteLine("\t Menetek száma: {0}, " +
-                "Játékos győzelmének száma: {1}, " +
-                "Gép győzelmének száma: {2} ", menet, jatekosNyer, gepNyer);
-        }
+        
     }
 }
