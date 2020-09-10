@@ -21,7 +21,7 @@
 - [x] Addig játszunk amíg ki nem lépünk a játékból
 - [x] Statisztika megvalósítása
 	- gép, játékos, mennyi menet
-- [] Eredmények fájlba írása és megjelenítése
+- [x] Eredmények fájlba írása és megjelenítése
     -  1. érték -> menet
     -  2. érték -> Játékos
     -  3. érték -> Gép

@@ -14,6 +14,7 @@ namespace ismetles01
         static int gepNyer = 0;
         static int jatekosNyer = 0;
         static int menet = 0;
+        static bool tovabb = true;
 
         static int GepValasztas()
         {
@@ -101,11 +102,26 @@ namespace ismetles01
             Console.WriteLine("------------>Statisztika vége<------------\n");
         }
 
+        private static void StatisztikaFajlba()
+        {
+            StreamWriter stat = new StreamWriter("Statisztika.txt");
+            while (!tovabb)
+            {
+                int[] sorok = new int[];
+                for (int i = 0; i < sorok.Length; i++)
+                {
+
+                }
+            }
+            stat.Close();
+        }
+
         static void Main(string[] args)
         {
             StatisztikaFajlbol();
 
-            bool tovabb = true;
+            StatisztikaFajlba();
+
             while (tovabb)
             {
                 menet++;
@@ -123,7 +139,5 @@ namespace ismetles01
 
             Console.ReadKey();
         }
-
-        
     }
 }
