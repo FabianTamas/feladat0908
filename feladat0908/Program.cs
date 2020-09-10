@@ -9,7 +9,6 @@ namespace ismetles01
     class Program
     {
         static string[] lehetoseg = new string[] { "Kő", "Papír", "Olló" };
-
         static int GepValasztas()
         {
             Random vel = new Random();
@@ -49,12 +48,33 @@ namespace ismetles01
             }
             else return 1;
         }
+        private static bool Akarjatszani()
+        {
+            Console.WriteLine("----------------------------------------------------------");
+            Console.Write("Tovább? [i/n]:");
+            string valasz = Console.ReadLine().ToLower();
+            Console.WriteLine("\n----------------------------------------------------------");
+
+            if (valasz == "i")
+            {
+                return true;
+            }
+            else return false;
+            //throw new NotImplementedException();
+        }
         static void Main(string[] args)
         {
+            bool tovabb = true;
+            while (tovabb)
+            {
+                int jatekosValasz = JatekosValasztas();
 
-            int jatekosValasz = JatekosValasztas();
-            int gepValasz = GepValasztas();
-            EredmenyKiiras(gepValasz, jatekosValasz);
+                int gepValasz = GepValasztas();
+
+                EredmenyKiiras(gepValasz, jatekosValasz);
+
+                tovabb = Akarjatszani();
+            }
 
             Console.ReadKey();
         }
