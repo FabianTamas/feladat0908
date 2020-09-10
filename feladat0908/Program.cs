@@ -9,17 +9,24 @@ namespace ismetles01
     class Program
     {
         static string[] lehetoseg = new string[] { "Kő", "Papír", "Olló" };
+
+        static int gepNyer = 0;
+        static int jatekosNyer = 0;
+        static int menet = 0;
+
         static int GepValasztas()
         {
             Random vel = new Random();
             return vel.Next(0, 3);
         }
+
         static int JatekosValasztas()
         {
             Console.WriteLine("Kő (0), Papír (1), Olló (2)");
             Console.Write("Válasz: ");
             return Convert.ToInt32(Console.ReadLine());
         }
+
         static void EredmenyKiiras(int gep, int ember)
         {
             Console.WriteLine("Gép: {0} --- Játékos: {1}", lehetoseg[gep], lehetoseg[ember]);
@@ -36,18 +43,21 @@ namespace ismetles01
                     break;
             }
         }
+
         static int EmberNyer(int gep, int ember)
         {
             if (gep == 0 && ember == 1 || gep == 1 && ember == 2 || gep == 2 && ember == 0)
             {
+                jatekosNyer++;
                 return 2;
             }
             else if (gep == ember)
             {
                 return 0;
             }
-            else return 1;
+            else gepNyer++; return 1;
         }
+
         private static bool Akarjatszani()
         {
             Console.WriteLine("----------------------------------------------------------");
@@ -62,11 +72,14 @@ namespace ismetles01
             else return false;
             //throw new NotImplementedException();
         }
+
         static void Main(string[] args)
         {
             bool tovabb = true;
             while (tovabb)
             {
+                menet++;
+
                 int jatekosValasz = JatekosValasztas();
 
                 int gepValasz = GepValasztas();
@@ -76,7 +89,16 @@ namespace ismetles01
                 tovabb = Akarjatszani();
             }
 
+            StatisztikaKiiras();
+
             Console.ReadKey();
+        }
+
+        private static void StatisztikaKiiras()
+        {
+            Console.WriteLine("\t Menetek száma: {0}, " +
+                "Játékos győzelmének száma: {1}, " +
+                "Gép győzelmének száma: {2} ", menet, jatekosNyer, gepNyer);
         }
     }
 }
