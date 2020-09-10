@@ -105,13 +105,9 @@ namespace ismetles01
         private static void StatisztikaFajlba()
         {
             StreamWriter stat = new StreamWriter("Statisztika.txt");
-            while (!tovabb)
+            for (int i = 0; i < 1; i++)
             {
-                int[] sorok = new int[];
-                for (int i = 0; i < sorok.Length; i++)
-                {
-
-                }
+                stat.Write(menet + ";" + jatekosNyer + ";" + gepNyer + ";");
             }
             stat.Close();
         }
@@ -119,8 +115,6 @@ namespace ismetles01
         static void Main(string[] args)
         {
             StatisztikaFajlbol();
-
-            StatisztikaFajlba();
 
             while (tovabb)
             {
@@ -136,6 +130,8 @@ namespace ismetles01
             }
 
             StatisztikaKiiras();
+            
+            StatisztikaFajlba();
 
             Console.ReadKey();
         }
