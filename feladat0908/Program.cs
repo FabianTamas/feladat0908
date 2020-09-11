@@ -84,6 +84,8 @@ namespace ismetles01
 
         private static void StatisztikaFajlbol()
         {
+            Console.WriteLine("--------------->Statisztika<--------------");
+            Console.WriteLine(" Menet\t Játékos győzelme\t Gép győzelme\t");
             StreamReader stat = new StreamReader("Statisztika.txt");
             while (!stat.EndOfStream)
             {
@@ -96,7 +98,7 @@ namespace ismetles01
                 {
                     adat[i] = int.Parse(szovegAdat[i]);
                 }
-                Console.WriteLine("{0} {1} {2}",adat[0], adat[1], adat[2]);
+                Console.WriteLine("|{0,3} |\t     |{1,3} |\t\t   |{2,3} |",adat[0], adat[1], adat[2]);
             }
             stat.Close();
             Console.WriteLine("------------>Statisztika vége<------------\n");
@@ -104,11 +106,9 @@ namespace ismetles01
 
         private static void StatisztikaFajlba()
         {
-            StreamWriter stat = new StreamWriter("Statisztika.txt");
-            for (int i = 0; i < 1; i++)
-            {
-                stat.Write(menet + ";" + jatekosNyer + ";" + gepNyer + ";");
-            }
+            string adat = menet.ToString() + ";" + jatekosNyer.ToString() + ";" + gepNyer.ToString();
+            StreamWriter stat = new StreamWriter("Statisztika.txt", true);
+            stat.WriteLine(adat);
             stat.Close();
         }
 
